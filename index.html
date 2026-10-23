@@ -9,6 +9,42 @@
 @media(max-width:1150px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand{min-width:180px}.hero-art{font-size:55px}.practice-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.topbar{padding:10px;gap:8px;flex-wrap:wrap}.brand{min-width:0;flex:1}.brand b{font-size:18px}.brand small{display:none}.brand-icon{font-size:23px}.search{order:3;flex-basis:100%}.top-actions .btn{font-size:12px;padding:8px}.nav{padding:8px 10px;gap:4px}.nav button{font-size:12px;padding:8px 10px}.content{padding:12px}.hero{padding:21px}.hero-art{display:none}.hero p{font-size:14px}.word-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.word-card{padding:11px}.word-name{font-size:15px}.meaning{font-size:13px}.example{font-size:12px}.word-card.user-word:before{font-size:8px;right:7px;top:7px}.section{padding:12px}.section-head h2{font-size:17px}.controls select{flex:1}.pagination span{width:100%;text-align:center;order:-1}.stats{gap:6px}}
 @media(max-width:390px){.word-grid{grid-template-columns:1fr}.practice-grid{grid-template-columns:1fr}.hero h1{font-size:27px}.word-card.user-word:before{font-size:9px}.top-actions{gap:4px}}
+
+/* Mobile autocomplete and contrast hardening */
+.search{position:relative;z-index:40;min-width:0}
+#searchWrap{isolation:isolate}
+#suggestions{position:absolute;display:block;box-sizing:border-box;top:calc(100% + 8px);left:0;right:0;width:100%;z-index:99999;max-height:min(54vh,400px);overflow-x:hidden;overflow-y:auto;padding:7px;border-radius:16px;background:#101d31;color:#edf4ff;border:1px solid #385172;box-shadow:0 20px 48px rgba(0,0,0,.42);line-height:1.45}
+#suggestions.hidden{display:none!important}
+#suggestions .suggestion{display:flex!important;position:relative;box-sizing:border-box;align-items:center;gap:10px;width:100%;min-height:64px;height:auto;max-height:none;flex:none;float:none;white-space:normal;overflow:hidden;margin:0 0 4px;padding:10px;border:0;border-radius:11px;background:transparent;color:#edf4ff;text-align:left;line-height:1.45;vertical-align:top}
+#suggestions .suggestion:last-child{margin-bottom:0}
+#suggestions .suggestion:hover,#suggestions .suggestion:focus-visible{background:#203652;outline:2px solid #4c8cba;outline-offset:-2px}
+#suggestions .suggestion>.emoji{flex:0 0 28px;width:28px;font-size:22px;line-height:1.25}
+#suggestions .suggestion .s-main{display:block;flex:1 1 auto;width:0;min-width:0;max-width:100%;overflow:hidden;line-height:1.45}
+#suggestions .suggestion b{display:block;position:static;font-size:14px;font-weight:750;line-height:1.4;white-space:normal;overflow-wrap:anywhere;word-break:normal;margin:0 0 3px}
+#suggestions .suggestion small{display:block;position:static;font-size:12px;font-weight:400;line-height:1.4;color:#b8c8dc;white-space:normal;overflow-wrap:anywhere;word-break:normal;overflow:hidden;max-height:2.8em}
+#suggestions .suggestion .s-label{display:inline-block;position:static;flex:0 0 auto;max-width:86px;white-space:normal;text-align:center;overflow-wrap:anywhere;font-size:9px;line-height:1.25;padding:4px 6px}
+#suggestions .suggestion-empty{display:block;padding:13px;color:#b8c8dc;font-size:13px;line-height:1.5}
+.light #suggestions{background:#fff;color:#1c2b40;border-color:#cbd7e7;box-shadow:0 18px 44px rgba(21,36,59,.22)}
+.light #suggestions .suggestion{color:#1c2b40;background:#fff}
+.light #suggestions .suggestion:hover,.light #suggestions .suggestion:focus-visible{background:#edf4ff}
+.light #suggestions .suggestion small,.light #suggestions .suggestion-empty{color:#526780}
+.light #suggestions .suggestion .s-label{color:#087e6c;border-color:#31b9a2}
+.light .hero h1{color:#f7fbff!important;-webkit-text-fill-color:#f7fbff}
+.light .hero p,.light .hero .pills,.light .hero .pill{color:#f1f7ff!important;-webkit-text-fill-color:initial}
+.light .hero .gradient{background:linear-gradient(90deg,#d7c6ff,#70e0ff);background-clip:text;-webkit-background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent}
+.light .hero .pill{background:#173858;border-color:#587aa0}
+.light .word-card,.light .section,.light .panel{color:#1c2b40}
+.light .word-card .meaning{color:#24364c}
+.light .word-card .example{color:#405873}
+.light .word-card .tip,.light .section-note{color:#526780}
+.light .category{color:#526780}
+.light .word-name{color:#087e8b}
+.light .user-word .word-name{color:#087e6c}
+.light .nav button{color:#40536c}
+.light .nav button.active,.light .nav button:hover{color:#1c2b40;background:#e2ebf8}
+.light .hero .pill{color:#f1f7ff!important}
+@media(max-width:760px){.topbar{position:relative;z-index:100}#searchWrap{flex:1 0 100%;width:100%}#suggestions{max-height:48vh}.light .hero h1{color:#f7fbff!important}}
+
 </style></head>
 <body><div class="app">
 <header class="topbar"><div class="brand"><span class="brand-icon">📘</span><div><b>Mahashri English</b><small>Learn words. Use them daily.</small></div></div><div class="search" id="searchWrap"><span>⌕</span><input id="globalSearch" type="search" autocomplete="off" placeholder="Search 500+ words, meanings or examples…" aria-label="Search vocabulary" aria-controls="suggestions" aria-expanded="false"><div id="suggestions" class="suggestions hidden" role="listbox" aria-label="Search suggestions"></div></div><div class="top-actions"><button class="btn" id="themeBtn">☀️ / 🌙</button><button class="btn" id="exportBtn">⇩ Export</button></div></header>
