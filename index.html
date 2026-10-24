@@ -132,6 +132,60 @@
 
  .linkedin-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap;font-weight:700;border-color:#2867b2;color:#dcecff}
 @media(max-width:760px){.topbar .linkedin-link{grid-column:span 2;justify-self:stretch}}
+
+/* Final mobile toolbar alignment: three equal controls per row */
+@media(max-width:760px){
+ .topbar .top-actions{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-rows:minmax(40px,auto);
+  align-items:stretch!important;
+  justify-content:stretch!important;
+  gap:7px!important;
+  width:100%!important;
+ }
+ .topbar .top-actions>*{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:40px!important;
+  height:40px!important;
+  margin:0!important;
+  justify-self:stretch!important;
+  align-self:stretch!important;
+ }
+ .topbar .top-actions .learn-toggle{
+  display:flex!important;
+  flex-direction:row;
+  justify-content:center!important;
+  gap:5px!important;
+  padding:0 4px!important;
+  font-size:11px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+ }
+ .topbar .top-actions .learn-toggle input{
+  flex:0 0 14px!important;
+  width:14px!important;
+  height:14px!important;
+ }
+ .topbar .top-actions #languageSelect,
+ .topbar .top-actions .btn,
+ .topbar .top-actions .linkedin-link{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0 4px!important;
+  font-size:11px!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+ }
+ .topbar .top-actions #languageSelect{appearance:auto!important}
+}
 </style></head>
 <body><div class="app">
 <header class="topbar"><div class="brand"><span class="brand-icon">📘</span><div><b>Mahashri English</b><small>Learn words. Use them daily.</small></div></div><div class="search" id="searchWrap"><span>⌕</span><input id="globalSearch" type="search" autocomplete="off" placeholder="Search 500+ words, meanings or examples…" aria-label="Search vocabulary" aria-controls="suggestions" aria-expanded="false"><div id="suggestions" class="suggestions hidden" role="listbox" aria-label="Search suggestions"></div></div><div class="top-actions"><label class="learn-toggle"><input id="visualToggle" type="checkbox"> Visual</label><label class="learn-toggle"><input id="translationToggle" type="checkbox"> Translate</label><select id="languageSelect" aria-label="Translation language"><option value="ta">தமிழ்</option><option value="kn">ಕನ್ನಡ</option><option value="te">తెలుగు</option><option value="ml">മലയാളം</option><option value="hi">हिन्दी</option></select><button class="btn" id="themeBtn">☀️ / 🌙</button><button class="btn" id="exportBtn">⇩ Export</button><a class="btn linkedin-link" href="https://www.linkedin.com/in/mahashrid/" target="_blank" rel="noopener noreferrer" aria-label="Find Mahashri Dharmarajan on LinkedIn">in LinkedIn ↗</a></div></header>
