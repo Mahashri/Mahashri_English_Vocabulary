@@ -23,3 +23,10 @@ Open `index.html` in a modern browser. No build step, server, API key, or extern
 
 ## Data and privacy
 Your words and progress are saved in browser localStorage on the current device/browser. Use **Export** regularly to back up your data. Clearing browser site data can remove locally stored progress.
+
+
+---
+
+## Live Demo
+
+[Open the deployed application](https://mahashri.github.io/Mahashri_English_Vocabulary/)
